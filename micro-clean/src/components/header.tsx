@@ -13,10 +13,16 @@ export default function Header({ returnText }: HeaderProps) {
       <Link className="brand" href="/" aria-label="MICRO CLEAN home">
         <Image loading="eager" src={logo} alt="MICRO CLEAN Cleaning Services" />
       </Link>
-      <div className="header-note">
-        <ShieldCheck size={17} aria-hidden="true" />A cleaner space starts here
-      </div>
+      {returnText ? (
+        <Link href="/" className="fx-noprint">
+          {returnText}
+        </Link>
+      ) : (
+        <div className="header-note">
+          <ShieldCheck size={17} aria-hidden="true" />A cleaner space starts
+          here
+        </div>
+      )}
     </header>
   );
 }
-
