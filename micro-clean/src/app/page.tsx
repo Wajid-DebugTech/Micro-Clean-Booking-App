@@ -6,6 +6,9 @@ export default function Home() {
       <Header />
       <div className="container">
         <p>page text</p>
+
+        <div style={{ width: "10rem", height: "100rem", backgroundColor: "blue" }} /> {/* placeholder for testing scrolling behavior */}
+        
       </div>
     </main>
   );

@@ -45,3 +45,11 @@ header {
     padding: 0 max(5vw, 24px);
     display: flex;
 }
+
+.header-note {
+    color: #607781;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    display: flex;
+}

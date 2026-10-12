@@ -11,7 +11,7 @@ export default function Header({ returnText }: HeaderProps) {
   return (
     <header>
       <Link className="brand" href="/" aria-label="MICRO CLEAN home">
-        <Image src={logo} alt="MICRO CLEAN Cleaning Services" />
+        <Image loading="eager" src={logo} alt="MICRO CLEAN Cleaning Services" />
       </Link>
       <div className="header-note">
         <ShieldCheck size={17} aria-hidden="true" />A cleaner space starts here
