@@ -53,3 +53,9 @@ header {
     font-size: 13px;
     display: flex;
 }
+
+main {
+    max-width: 1180px;
+    margin: auto;
+    padding: 0 24px;
+}
