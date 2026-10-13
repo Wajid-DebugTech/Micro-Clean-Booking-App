@@ -150,6 +150,29 @@ h1 {
     color: #007d89;
 }
 
+.steps span {
+    background: #edf3f4;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+}
+
+.steps .active span {
+    color: #fff;
+    background: #008d9b;
+}
+
+.steps em {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+}
+
 .steps button {
     color: #81929b;
     text-align: left;
