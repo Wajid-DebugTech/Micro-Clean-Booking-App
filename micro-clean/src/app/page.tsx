@@ -31,6 +31,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/*TODO: get current step instead of hardcoded, clicking buttons should bring you to the respective step */}
         <Steps current={1} />
 
         <p>page text</p>
