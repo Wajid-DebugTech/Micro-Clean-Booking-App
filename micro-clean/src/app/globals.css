@@ -135,3 +135,50 @@ h1 {
     text-decoration: none;
     display: inline-flex;
 }
+
+.steps {
+    background: #fff;
+    border: 1px solid #e0e9eb;
+    border-radius: 16px;
+    margin-bottom: 22px;
+    padding: 20px 30px;
+    display: flex;
+    box-shadow: 0 4px 14px #19395104;
+}
+
+.steps .active {
+    color: #007d89;
+}
+
+.steps button {
+    color: #81929b;
+    text-align: left;
+    background: 0 0;
+    border: 0;
+    flex: 1;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    display: flex;
+    position: relative;
+}
+
+button {
+    cursor: pointer;
+}
+
+button, input, textarea {
+    font: inherit;
+}
+
+button:disabled {
+    cursor: default;
+    opacity: .5;
+}
+
+.workspace {
+    grid-template-columns: minmax(0, 1fr) 310px;
+    align-items: start;
+    gap: 22px;
+    display: grid;
+}

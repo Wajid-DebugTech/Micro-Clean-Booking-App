@@ -1,10 +1,12 @@
-import Header from "@/components/header";
+import Header from "@/components/Header";
+import Steps from "@/components/Steps";
 import { Sparkles } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="app">
       <Header />
+
       <main>
         <section className="intro">
           <div className="eyebrow">
@@ -27,6 +29,9 @@ export default function Home() {
             </a>
           </div>
         </section>
+
+        <Steps current={1} />
+
         <p>page text</p>
         {/* placeholder for testing scrolling behavior */}
         <div
