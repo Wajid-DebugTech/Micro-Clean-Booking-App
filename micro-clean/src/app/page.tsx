@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer";
-import FormWizard from "@/components/FormWizard";
+import FormWizard from "@/components/BookingForm/FormWizard";
 import Header from "@/components/Header";
 import { Sparkles } from "lucide-react";
 

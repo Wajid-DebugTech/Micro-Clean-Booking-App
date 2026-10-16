@@ -2,8 +2,8 @@
 
 import { BookingProvider, useBooking } from "@/context/booking";
 import Steps from "./Steps";
+import DetailsStep from "./DetailsStep";
 
-const Placeholder = ({ n }: { n: number }) => <p>step {n} goes here</p>;
 const SummaryCard = () => <div className="summary">summary goes here</div>;
 
 function WizardContent() {
@@ -14,11 +14,11 @@ function WizardContent() {
       <Steps />
       <div className="workspace">
         <section className="panel">
-          {step === 1 && <Placeholder n={1} />}
-          {step === 2 && <Placeholder n={2} />}
-          {step === 3 && <Placeholder n={3} />}
-          {step === 4 && <Placeholder n={4} />}
-          {step === 5 && <Placeholder n={5} />}
+          {step === 1 && <DetailsStep />}
+          {step === 2 && <DetailsStep />}
+          {step === 3 && <DetailsStep />}
+          {step === 4 && <DetailsStep />}
+          {step === 5 && <DetailsStep />}
         </section>
         <aside>
           <SummaryCard />
