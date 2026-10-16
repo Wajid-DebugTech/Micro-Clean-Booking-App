@@ -222,3 +222,19 @@ footer {
 p {
     line-height: 1.6;
 }
+
+.panel {
+    background: #fff;
+    border: 1px solid #e0e9eb;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 6px 20px #16365804;
+}
+
+.summary {
+    color: #fff;
+    background: #103657;
+    border-radius: 20px;
+    padding: 27px 25px;
+    overflow: hidden;
+}

@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
+import FormWizard from "@/components/FormWizard";
 import Header from "@/components/Header";
-import Steps from "@/components/Steps";
 import { Sparkles } from "lucide-react";
 
 export default function Home() {
@@ -31,14 +31,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/*TODO: get current step instead of hardcoded, clicking buttons should bring you to the respective step */}
-        <Steps current={1} />
-
-        <p>page text</p>
-        {/* placeholder for testing scrolling behavior */}
-        <div
-          style={{ width: "10rem", height: "100rem", backgroundColor: "blue" }}
-        />
+        <FormWizard />
 
         <Footer />
       </main>
