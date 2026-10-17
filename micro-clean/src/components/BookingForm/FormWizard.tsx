@@ -2,9 +2,8 @@
 
 import { BookingProvider, useBooking } from "@/context/booking";
 import Steps from "./Steps";
+import SummaryCard from "./SummaryCard";
 import DetailsStep from "./DetailsStep";
-
-const SummaryCard = () => <div className="summary">summary goes here</div>;
 
 function WizardContent() {
   const { step } = useBooking();
