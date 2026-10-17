@@ -3,7 +3,7 @@
 import { BookingProvider, useBooking } from "@/context/booking";
 import Steps from "./Steps";
 import SummaryCard from "./SummaryCard";
-import DetailsStep from "./DetailsStep";
+import Step1 from "./Step1";
 
 function WizardContent() {
   const { step } = useBooking();
@@ -13,11 +13,11 @@ function WizardContent() {
       <Steps />
       <div className="workspace">
         <section className="panel">
-          {step === 1 && <DetailsStep />}
-          {step === 2 && <DetailsStep />}
-          {step === 3 && <DetailsStep />}
-          {step === 4 && <DetailsStep />}
-          {step === 5 && <DetailsStep />}
+          {step === 1 && <Step1 />}
+          {step === 2 && <Step1 />}
+          {step === 3 && <Step1 />}
+          {step === 4 && <Step1 />}
+          {step === 5 && <Step1 />}
         </section>
         <aside>
           <SummaryCard />

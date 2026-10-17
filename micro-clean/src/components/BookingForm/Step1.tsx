@@ -3,7 +3,7 @@
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { useBooking } from "@/context/booking";
 
-export default function DetailsStep() {
+export default function Step1() {
   const { data, update, next } = useBooking();
 
   function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
