@@ -84,3 +84,14 @@ export function getEarliestDate(): string {
     const pad = (n: number) => String(n).padStart(2, "0");
     return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
+
+export function toggleService(current: ServiceId[], id: ServiceId): ServiceId[] {
+    if (current.includes(id)) return current.filter((s) => s !== id);
+
+    // selecting Basic or Deep removes the other one since they are mutually exclusive
+    if (EXCLUSIVE_SERVICES.includes(id)) {
+        return [...current.filter((s) => !EXCLUSIVE_SERVICES.includes(s)), id];
+    }
+
+    return [...current, id];
+}
