@@ -630,3 +630,24 @@ h3 {
     padding:12px;
     font-size:13px;
 }
+
+.aside-note {
+    color: #547280;
+    gap: 11px;
+    padding: 24px 10px;
+    display: flex;
+}
+
+.aside-note svg {
+    color: #008d9b;
+    flex-shrink: 0;
+}
+
+.aside-note strong {
+    font-size: 12px;
+}
+
+.aside-note p {
+    margin: 7px 0;
+    font-size: 11px;
+}

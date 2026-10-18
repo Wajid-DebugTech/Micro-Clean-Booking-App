@@ -1,6 +1,7 @@
 "use client";
 
 import { BookingProvider, useBooking } from "@/context/booking";
+import { ShieldCheck } from "lucide-react";
 import Steps from "./Steps";
 import SummaryCard from "./SummaryCard";
 import Step1 from "./Step1";
@@ -22,8 +23,20 @@ function WizardContent() {
           {step === 4 && <Step4 />}
           {step === 5 && <Step4 />}
         </section>
+
         <aside>
           <SummaryCard />
+
+          <div className="aside-note">
+            <ShieldCheck size={26} aria-hidden="true" />
+            <div>
+              <strong>No payment at this stage</strong>
+              <p>
+                Send your preferences first. Confirm the details before
+                committing.
+              </p>
+            </div>
+          </div>
         </aside>
       </div>
     </>
