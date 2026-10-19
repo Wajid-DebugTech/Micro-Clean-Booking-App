@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 import { useBooking } from "@/context/booking";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { PET_OPTIONS, type BookingData } from "@/lib/booking";
+import { LIMITS } from "@/lib/validation";
 
 export default function StepInfo() {
   const { data, update, next, back } = useBooking();
@@ -44,7 +45,7 @@ export default function StepInfo() {
             Access and parking instructions <small>(optional)</small>
           </span>
           <textarea
-            maxLength={1500}
+            maxLength={LIMITS.notesMax}
             placeholder="Please avoid sharing door codes or sensitive details"
             value={data.accessInstructions}
             onChange={(e) => update({ accessInstructions: e.target.value })}
@@ -55,7 +56,7 @@ export default function StepInfo() {
             Special instructions <small>(optional)</small>
           </span>
           <textarea
-            maxLength={1500}
+            maxLength={LIMITS.notesMax}
             placeholder="Tell us about rooms, priority areas, access, parking or pets. Please avoid sharing door codes or sensitive details."
             value={data.specialInstructions}
             onChange={(e) => update({ specialInstructions: e.target.value })}

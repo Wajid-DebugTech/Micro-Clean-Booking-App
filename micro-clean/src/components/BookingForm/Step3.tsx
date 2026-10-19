@@ -9,6 +9,7 @@ import {
   getEarliestDate,
   type BookingData,
 } from "@/lib/booking";
+import { LIMITS } from "@/lib/validation";
 
 export default function Step3() {
   const { data, update, next, back } = useBooking();
@@ -49,8 +50,8 @@ export default function Step3() {
             <input
               required
               type="number"
-              min={1}
-              max={9999999}
+              min={LIMITS.sizeMin}
+              max={LIMITS.sizeMax}
               step={1}
               value={data.size}
               onChange={(e) => update({ size: e.target.value })}

@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useBooking } from "@/context/booking";
 import { Checkbox } from "@/components/ui/checkbox";
 import { SERVICES } from "@/lib/booking";
+import { validateBooking } from "@/lib/validation";
 
 function ReviewSection({
   title,
@@ -31,18 +32,18 @@ function ReviewSection({
 
 export default function Step5() {
   const { data, update, back, submit, sending, submitError } = useBooking();
-  const [showConsentError, setShowConsentError] = useState(false);
+  const [attempted, setAttempted] = useState(false);
 
   const serviceNames = data.services
     .map((id) => SERVICES.find((s) => s.id === id)?.title)
     .join(", ");
 
+  const invalidSteps = validateBooking(data);
+
   function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!data.consent) {
-      setShowConsentError(true);
-      return;
-    }
+    setAttempted(true);
+    if (invalidSteps.length > 0 || !data.consent) return;
     submit();
   }
 
@@ -122,7 +123,12 @@ export default function Step5() {
             and contact me about this request.
           </span>
         </label>
-        {showConsentError && !data.consent && (
+        {attempted && invalidSteps.length > 0 && (
+          <div className="error" role="alert">
+            Invalid data on step{invalidSteps.length > 1 && "s"}: {invalidSteps.join(", ")}. Please revise before submitting.
+          </div>
+        )}
+        {attempted && !data.consent && (
           <div className="error" role="alert">
             Please accept the booking terms before submitting.
           </div>

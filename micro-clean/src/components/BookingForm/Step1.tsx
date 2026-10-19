@@ -2,6 +2,7 @@
 
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { useBooking } from "@/context/booking";
+import { LIMITS } from "@/lib/validation";
 
 export default function Step1() {
   const { data, update, next } = useBooking();
@@ -28,7 +29,7 @@ export default function Step1() {
               type="text"
               required
               placeholder="Your full name"
-              maxLength={100}
+              maxLength={LIMITS.nameMax}
               autoComplete="name"
               value={data.fullName}
               onChange={(e) => update({ fullName: e.target.value })}
@@ -42,8 +43,8 @@ export default function Step1() {
               type="tel"
               required
               placeholder="e.g. 012 345 6789"
-              pattern="\+?[0-9 ()-]{8,20}"
-              maxLength={20}
+              pattern={LIMITS.mobilePattern}
+              maxLength={LIMITS.mobileMax}
               autoComplete="tel"
               value={data.mobile}
               onChange={(e) => update({ mobile: e.target.value })}
@@ -56,7 +57,7 @@ export default function Step1() {
             <input
               type="email"
               placeholder="Optional"
-              maxLength={150}
+              maxLength={LIMITS.emailMax}
               autoComplete="email"
               value={data.email}
               onChange={(e) => update({ email: e.target.value })}
@@ -70,8 +71,8 @@ export default function Step1() {
               type="text"
               required
               placeholder="e.g. 47600"
-              pattern="[0-9]{5}"
-              maxLength={5}
+              pattern={LIMITS.postcodePattern}
+              maxLength={LIMITS.postcodeLength}
               autoComplete="postal-code"
               value={data.postcode}
               onChange={(e) => update({ postcode: e.target.value })}
@@ -83,8 +84,8 @@ export default function Step1() {
             </span>
             <textarea
               required
-              minLength={10}
-              maxLength={500}
+              minLength={LIMITS.addressMin}
+              maxLength={LIMITS.addressMax}
               autoComplete="street-address"
               placeholder="Unit, street, city and state"
               value={data.address}
