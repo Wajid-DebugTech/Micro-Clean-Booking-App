@@ -27,6 +27,10 @@ export default function SummaryCard() {
         </div>
       </div>
       <div className="summary-line">
+        <span>Property type</span>
+        <strong>{data.propertyType}</strong>
+      </div>
+      <div className="summary-line">
         <span>Floor area</span>
         <strong>{data.size && `${data.size} sq ft`}</strong>
       </div>
@@ -39,7 +43,12 @@ export default function SummaryCard() {
         <strong>{data.time}</strong>
       </div>
       <div className="price">
-        <span>PRICE</span>
+        <span>ESTIMATED PRICE</span>
+        {/*
+        this should probably be providing a calculated estimate based on the services selected and the approximate size provided.
+        "quotation required" should only appear if a quotation-required service is selected, and even then it is probably best to do it like "[price] + Quotation required".
+        however this is all outside the scope of my duty so i will choose to ignore it.
+        */}
         <strong>Quotation required</strong>
         <p>Final scope, price and availability require confirmation.</p>
       </div>

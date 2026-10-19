@@ -89,7 +89,7 @@ export default function StepInfo() {
             </span>
             <textarea
               maxLength={LIMITS.notesMax}
-              placeholder="Tell us about rooms, priority areas, access, parking or pets. If you selected Other Cleaning, include the details here as well. Please avoid sharing door codes or sensitive details."
+              placeholder="Tell us about rooms, priority areas, access, parking or pets. If you selected Other Cleaning or Other as your property type, include the details here as well. Please avoid sharing door codes or sensitive details."
               value={data.specialInstructions}
               onChange={(e) => update({ specialInstructions: e.target.value })}
             />
