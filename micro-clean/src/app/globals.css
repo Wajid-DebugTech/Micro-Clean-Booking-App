@@ -294,6 +294,10 @@ p {
     padding: 14px;
 }
 
+.instructions span {
+    margin-top: 20px;
+}
+
 .full {
     grid-column: 1 / -1;
 }

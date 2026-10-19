@@ -47,36 +47,36 @@ export function validateBooking(input: unknown): number[] {
         invalid.add(1);
     }
 
-    // step 2: services and frequency
+    // step 2: services
     const services = Array.isArray(d.services) ? d.services : [];
     const validIds: string[] = SERVICES.map((s) => s.id);
     if (
         services.length === 0 ||
         !services.every((s) => typeof s === "string" && validIds.includes(s)) ||
         new Set(services).size !== services.length ||
-        services.filter((s) => (EXCLUSIVE_SERVICES as string[]).includes(s)).length > 1 ||
-        !(FREQUENCIES as readonly string[]).includes(text("frequency"))
+        services.filter((s) => (EXCLUSIVE_SERVICES as string[]).includes(s)).length > 1
     ) {
         invalid.add(2);
     }
 
-    // step 3: property and schedule
-    const size = text("size");
-    const sizeNum = Number(size);
+    // step 3: schedule
     const date = text("date");
     if (
-        !(PROPERTY_TYPES as readonly string[]).includes(text("propertyType")) ||
-        size === "" || !Number.isInteger(sizeNum) ||
-        sizeNum < LIMITS.sizeMin || sizeNum > LIMITS.sizeMax ||
         !/^\d{4}-\d{2}-\d{2}$/.test(date) || date < getEarliestDate() ||
         !/^\d{2}:\d{2}$/.test(text("time")) ||
-        !(FLEXIBILITY_OPTIONS as readonly string[]).includes(text("flexibility"))
+        !(FLEXIBILITY_OPTIONS as readonly string[]).includes(text("flexibility")) ||
+        !(FREQUENCIES as readonly string[]).includes(text("frequency"))
     ) {
         invalid.add(3);
     }
 
-    // step 4: extra info
+    // step 4: info
+    const size = text("size");
+    const sizeNum = Number(size);
     if (
+        !(PROPERTY_TYPES as readonly string[]).includes(text("propertyType")) ||
+        size === "" || !Number.isInteger(sizeNum) ||
+        sizeNum < LIMITS.sizeMin || sizeNum > LIMITS.sizeMax ||
         !(PET_OPTIONS as readonly string[]).includes(text("pets")) ||
         text("accessInstructions").length > LIMITS.notesMax ||
         text("specialInstructions").length > LIMITS.notesMax

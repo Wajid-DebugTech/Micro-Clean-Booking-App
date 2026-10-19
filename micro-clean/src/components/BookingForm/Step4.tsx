@@ -3,7 +3,7 @@
 import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 import { useBooking } from "@/context/booking";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { PET_OPTIONS, type BookingData } from "@/lib/booking";
+import { PROPERTY_TYPES, PET_OPTIONS, type BookingData } from "@/lib/booking";
 import { LIMITS } from "@/lib/validation";
 
 export default function StepInfo() {
@@ -22,6 +22,37 @@ export default function StepInfo() {
         Help us understand your space before preparing a quotation.
       </p>
       <form onSubmit={handleSubmit}>
+        <div className="fields">
+          <label className="field">
+            <span>Property type</span>
+            <select
+              value={data.propertyType}
+              onChange={(e) =>
+                update({
+                  propertyType: e.target.value as BookingData["propertyType"],
+                })
+              }
+            >
+              {PROPERTY_TYPES.map((type) => (
+                <option key={type}>{type}</option>
+              ))}
+            </select>
+          </label>
+          <label className="field">
+            <span>
+              Approximate size (sq ft) <b>*</b>
+            </span>
+            <input
+              required
+              type="number"
+              min={LIMITS.sizeMin}
+              max={LIMITS.sizeMax}
+              step={1}
+              value={data.size}
+              onChange={(e) => update({ size: e.target.value })}
+            />
+          </label>
+        </div>
         <h3>Pets at the property?</h3>
         <RadioGroup
           className="grid gap-3 choices"
@@ -40,28 +71,30 @@ export default function StepInfo() {
             </label>
           ))}
         </RadioGroup>
-        <label className="field">
-          <span>
-            Access and parking instructions <small>(optional)</small>
-          </span>
-          <textarea
-            maxLength={LIMITS.notesMax}
-            placeholder="Please avoid sharing door codes or sensitive details"
-            value={data.accessInstructions}
-            onChange={(e) => update({ accessInstructions: e.target.value })}
-          />
-        </label>
-        <label className="field">
-          <span>
-            Special instructions <small>(optional)</small>
-          </span>
-          <textarea
-            maxLength={LIMITS.notesMax}
-            placeholder="Tell us about rooms, priority areas, access, parking or pets. Please avoid sharing door codes or sensitive details."
-            value={data.specialInstructions}
-            onChange={(e) => update({ specialInstructions: e.target.value })}
-          />
-        </label>
+        <div className="instructions">
+          <label className="field">
+            <span>
+              Access and parking instructions <small>(optional)</small>
+            </span>
+            <textarea
+              maxLength={LIMITS.notesMax}
+              placeholder="Please avoid sharing door codes or sensitive details"
+              value={data.accessInstructions}
+              onChange={(e) => update({ accessInstructions: e.target.value })}
+            />
+          </label>
+          <label className="field">
+            <span>
+              Special instructions <small>(optional)</small>
+            </span>
+            <textarea
+              maxLength={LIMITS.notesMax}
+              placeholder="Tell us about rooms, priority areas, access, parking or pets. If you selected Other Cleaning, include the details here as well. Please avoid sharing door codes or sensitive details."
+              value={data.specialInstructions}
+              onChange={(e) => update({ specialInstructions: e.target.value })}
+            />
+          </label>
+        </div>
         <div className="notice">
           <Sparkles size={20} aria-hidden="true" />
           <span>

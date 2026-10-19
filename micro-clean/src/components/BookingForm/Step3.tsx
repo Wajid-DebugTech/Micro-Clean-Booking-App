@@ -4,12 +4,11 @@ import { ArrowLeft, ArrowRight, CalendarDays } from "lucide-react";
 import { useBooking } from "@/context/booking";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
+  FREQUENCIES,
   FLEXIBILITY_OPTIONS,
-  PROPERTY_TYPES,
   getEarliestDate,
   type BookingData,
 } from "@/lib/booking";
-import { LIMITS } from "@/lib/validation";
 
 export default function Step3() {
   const { data, update, next, back } = useBooking();
@@ -24,39 +23,10 @@ export default function Step3() {
       <div className="step-label">STEP 3 OF 5</div>
       <h2 tabIndex={-1}>Property &amp; Schedule</h2>
       <p className="description">
-        Choose your property and preferred cleaning time.
+        Choose your preferred cleaning time.
       </p>
       <form onSubmit={handleSubmit}>
         <div className="fields">
-          <label className="field">
-            <span>Property type</span>
-            <select
-              value={data.propertyType}
-              onChange={(e) =>
-                update({
-                  propertyType: e.target.value as BookingData["propertyType"],
-                })
-              }
-            >
-              {PROPERTY_TYPES.map((type) => (
-                <option key={type}>{type}</option>
-              ))}
-            </select>
-          </label>
-          <label className="field">
-            <span>
-              Approximate size (sq ft) <b>*</b>
-            </span>
-            <input
-              required
-              type="number"
-              min={LIMITS.sizeMin}
-              max={LIMITS.sizeMax}
-              step={1}
-              value={data.size}
-              onChange={(e) => update({ size: e.target.value })}
-            />
-          </label>
           <label className="field">
             <span>
               Preferred date <b>*</b>
@@ -96,6 +66,24 @@ export default function Step3() {
             >
               <RadioGroupItem value={option} id={`flex${i}`} />
               <span>{option}</span>
+            </label>
+          ))}
+        </RadioGroup>
+        <h3>Cleaning frequency</h3>
+        <RadioGroup
+          className="grid gap-3 choices"
+          value={data.frequency}
+          onValueChange={(value) =>
+            update({ frequency: value as (typeof FREQUENCIES)[number] })
+          }
+        >
+          {FREQUENCIES.map((frequency, i) => (
+            <label
+              key={frequency}
+              className={`choice ${data.frequency === frequency ? "selected" : ""}`}
+            >
+              <RadioGroupItem value={frequency} id={`frequency${i}`} />
+              <span>{frequency}</span>
             </label>
           ))}
         </RadioGroup>

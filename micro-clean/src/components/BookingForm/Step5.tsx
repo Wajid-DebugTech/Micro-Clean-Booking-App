@@ -56,39 +56,47 @@ export default function Step5() {
       </p>
       <form onSubmit={handleSubmit}>
         <div className="review">
-          <ReviewSection title="Customer details" step={1}>
-            Name: {data.fullName}
+          <ReviewSection title="Customer Details" step={1}>
+            {data.fullName}
             <br />
-            Phone: {data.mobile}
+            {data.mobile}
             <br />
-            Email: {data.email || "None"}
+            {data.email || "None"}
             <br />
-            Address: {data.address}
+            {data.address}
             <br />
-            Postcode: {data.postcode}
+            {data.postcode}
           </ReviewSection>
-          <ReviewSection title="Service & space" step={2}>
+          <ReviewSection title="Service" step={2}>
             {serviceNames}
-            <br />
-            {data.propertyType}
-            <br />
-            {data.size} sq ft
-            <br />
-            {data.frequency}
           </ReviewSection>
-          <ReviewSection title="Preferred schedule" step={3}>
+          <ReviewSection title="Preferred Schedule" step={3}>
             {data.date}
             <br />
             {data.time}
             <br />
             {data.flexibility}
+            <br />
+            {data.frequency}
           </ReviewSection>
-          <ReviewSection title="Instructions" step={4}>
+          <ReviewSection title="Information" step={4}>
+            {data.propertyType}
+            <br />
+            {data.size} sq ft
+            <br />
             Pets: {data.pets}
             <br />
-            Access Instructions: {data.accessInstructions || "None"}
+            Access Instructions:{" "}
+            {data.accessInstructions
+              ? data.accessInstructions.slice(0, 30) +
+                (data.accessInstructions.length > 30 ? "..." : "")
+              : "None"}
             <br />
-            Special Instructions: {data.specialInstructions || "None"}
+            Special Instructions:{" "}
+            {data.specialInstructions
+              ? data.specialInstructions.slice(0, 30) +
+                (data.specialInstructions.length > 30 ? "..." : "")
+              : "None"}
           </ReviewSection>
         </div>
         <section className="booking-terms">
@@ -125,7 +133,8 @@ export default function Step5() {
         </label>
         {attempted && invalidSteps.length > 0 && (
           <div className="error" role="alert">
-            Invalid data on step{invalidSteps.length > 1 && "s"}: {invalidSteps.join(", ")}. Please revise before submitting.
+            Invalid data on step{invalidSteps.length > 1 && "s"}:{" "}
+            {invalidSteps.join(", ")}. Please revise before submitting.
           </div>
         )}
         {attempted && !data.consent && (
