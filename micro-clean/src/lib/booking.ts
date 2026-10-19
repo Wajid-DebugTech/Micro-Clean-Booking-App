@@ -95,3 +95,13 @@ export function toggleService(current: ServiceId[], id: ServiceId): ServiceId[] 
 
     return [...current, id];
 }
+
+export async function submitBooking(data: BookingData): Promise<{ reference: string }> {
+    const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+    });
+    if (!res.ok) throw new Error("Failed to send booking request");
+    return res.json();
+}

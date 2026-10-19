@@ -50,7 +50,9 @@ export default function Step1() {
             />
           </label>
           <label className="field">
-            <span>Email</span>
+            <span>
+              Email <small>(optional)</small>
+            </span>
             <input
               type="email"
               placeholder="Optional"

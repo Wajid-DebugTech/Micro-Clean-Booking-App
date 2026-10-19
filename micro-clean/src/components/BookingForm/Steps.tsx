@@ -6,7 +6,7 @@ import StepButton from "./StepButton";
 const STEPS = ["Details", "Service", "Schedule", "Info", "Review"];
 
 export default function Steps() {
-  const { step, furthestStep, goTo } = useBooking();
+  const { step, furthestStep, goTo, sending } = useBooking();
 
   return (
     <nav className="steps" aria-label="Booking progress">
@@ -18,7 +18,7 @@ export default function Steps() {
             number={n}
             label={label}
             active={step === n}
-            disabled={n > furthestStep}
+            disabled={n > furthestStep || sending}
             onClick={() => goTo(n)}
           />
         );

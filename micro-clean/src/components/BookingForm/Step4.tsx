@@ -40,7 +40,9 @@ export default function StepInfo() {
           ))}
         </RadioGroup>
         <label className="field">
-          <span>Access and parking instructions</span>
+          <span>
+            Access and parking instructions <small>(optional)</small>
+          </span>
           <textarea
             maxLength={1500}
             placeholder="Please avoid sharing door codes or sensitive details"

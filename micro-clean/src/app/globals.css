@@ -651,3 +651,109 @@ h3 {
     margin: 7px 0;
     font-size: 11px;
 }
+
+.review {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 25px;
+    display: grid;
+}
+
+.review>div {
+    border-bottom: 1px solid #e5edef;
+    padding: 15px 0;
+}
+
+.review h3 {
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 0 10px;
+    display: flex;
+}
+
+.review h3 button {
+    color: #008d9b;
+    background: 0 0;
+    border: 0;
+    font-size: 11px;
+}
+
+.review p {
+    color: #607986;
+    overflow-wrap: anywhere;
+    margin: 0;
+    font-size: 13px;
+}
+
+.booking-terms {
+    background: #f7f9fb;
+    border: 1px solid #d3e1e8;
+    border-radius: 14px;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.booking-terms li {
+    margin: 12px 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.consent {
+    color: #5d7581;
+    cursor: pointer;
+    align-items: start;
+    gap: 12px;
+    margin-top: 24px;
+    font-size: 12px;
+    line-height: 1.6;
+    display: flex;
+}
+
+.consent button {
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.success {
+    text-align: center;
+    background: #fff;
+    border: 1px solid #dfe9eb;
+    border-radius: 20px;
+    max-width: 700px;
+    margin: 10px auto;
+    padding: 45px;
+}
+
+.success>svg {
+    color: #008d9b;
+    margin: 0 auto 20px;
+}
+
+.success .notice {
+    text-align: left;
+}
+
+.success dl {
+    text-align: left;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 25px 0;
+    font-size: 13px;
+    display: grid;
+}
+
+.success dt {
+    color: #69818b;
+}
+
+.success dd {
+    margin: 0;
+}
+
+.success .small {
+    display: block;
+}
+
+.success .primary {
+    margin: 25px auto 0;
+}
